@@ -1,0 +1,30 @@
+CREATE TABLE Store_Database(ID INTEGER PRIMARY KEY, Item TEXT, Sold INTEGER, PRICE TEXT, In_Stock INTEGER);
+INSERT INTO Store_Database Values(1, "Shirts", 4, "$5.00", 10);
+INSERT INTO Store_Database Values(2, "Pants", 6, "$7.00", 12);
+INSERT INTO Store_Database Values(3, "Shoes", 12, "$15.00", 18);
+INSERT INTO Store_Database Values(4, "Underware", 8, "$6.00", 24);
+INSERT INTO Store_Database Values(5, "Socks", 16, "$4.00", 32);
+INSERT INTO Store_Database Values(6, "Bras", 8, "14.00", 20);
+INSERT INTO Store_Database Values(7, "Hoodies", 11, "15.00", 25);
+INSERT INTO Store_Database Values(8, "Sweaters", 17, "$18.00", 17);
+INSERT INTO Store_Database Values(9, "Sweat Pants", 12, "$9.00", 1);
+INSERT INTO Store_Database Values(10, "Shorts", 13, "$6.00", 5);
+INSERt INTO Store_Database Values(11, "Caps", 10, "$4.00", 20);
+INSERT INTO Store_Database Values(12, "Hats", 11, "$6.00", 18);
+INSERT INTO Store_Database Values(13, "Spats", 15, "$12.00", 20);
+INSERT INTO Store_Database Values(14, "Rash Guards", 17, "$25.00", 28);
+INSERT INTO Store_database Values(15, "Wraps", 18, "$14.00",19);
+
+
+Select*FROM Store_Database;
+
+--display the database where in stock items may be reordered.
+
+Select*FROM Store_Database Where In_Stock < 3 order by ID;
+
+--display the database where items may be seeling more than others.
+Select*FROM Store_Database Where Sold >20 Order by ID;
+
+--display the database with items sold vs. items on hand.
+Select Sum(Sold) FROM Store_Database;
+Select Sum(In_Stock) FROM Store_Database;
